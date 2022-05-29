@@ -1,0 +1,834 @@
+<!--Student no.: 2721431-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <title>&#60/></title>
+		<script src="./N5AssignmentJS/jquery-3.1.1.min.js"></script>
+        <link href="./N5AssignmentCSS/mobiscroll.jquery.min.css" rel="stylesheet">
+        <script src="./N5AssignmentJS/mobiscroll.jquery.min.js"></script>
+        <link href="./N5AssignmentCSS/converter.css" rel="stylesheet">
+    </head>
+    <style>
+        .csr{
+            cursor: pointer;
+        }
+        .csr:hover {
+            color: #8391a2;
+        }
+        .wrap {
+            height: auto;
+            width: auto;
+            background-color: #FFFFFF;
+            min-width: 300px;
+        }
+        body {
+            margin: 0px;
+        }
+        .removespacetop {
+            margin-top: -2px;
+        }
+        .topheader {
+            border-bottom: solid #313a46;
+            height: 100px;
+            width: 100%;
+            background-color: #f7f7f7;
+        }
+        .logowrapper {
+            float: left;
+            position: absolute;
+            margin: 25px;
+            margin-left: 60px;
+        }
+        .contactarea {
+            float: right;
+            margin: 40px;
+        }
+        .mainsection {
+            height: 95%;
+            width: 100%;
+            max-height: 95%;
+            max-width: 700px;
+        }
+        .lefthalf {
+            width: 40%;
+            float: left;
+            overflow-y: scroll;
+            background-color: #313a46;
+            min-width: 225px;
+        }
+        .righthalf {
+            right: 0;
+            float: right;
+            overflow-y: scroll;
+            position: absolute;
+        }
+        .contentstitle {
+            padding-top: 10px;
+            width: auto;
+            height: auto;
+            text-align: left;
+            font: normal normal normal 17px Arial;
+            letter-spacing: 0px;
+            color: #6c757d;
+            opacity: 1;
+            padding-left: 10px;
+        }
+        .contents{
+            border: 50px;
+            height: auto;
+            margin: 4px;
+            font: normal normal normal 17px Arial;
+            background-color: #313a46;
+        }
+        .definitionstitle {
+            width: auto;
+            height: auto;
+            text-align: left;
+            font: normal normal normal 17px Arial;
+            letter-spacing: 0px;
+            color: #6c757d;
+            opacity: 1;
+            padding-left: 10px;
+        }
+        .keywords {
+            width: auto;
+            height: auto;
+            margin: 4px;
+            font: normal normal normal 17px Arial;
+            background-color: #313a46;
+        }
+        .headings {
+            font: bold normal normal 18px Arial;
+        }
+        .subheadings {
+            font: bold normal normal 17px Arial;
+        }
+        .generalfont {
+            font: normal normal normal 16px Arial;
+        }
+        .output {
+            border-radius: 5px;
+            background: #000000;
+            padding: 20px;
+            font: normal normal normal 16px Arial;
+            color: #FFFFFF;
+        }
+        td, th {
+            border: 1px solid black;
+            text-align: left;
+            padding: 8px;
+        }
+		.mbsc-material.mbsc-form {
+			background-color: white;
+			color: #000000;
+		}
+		.mbsc-form-group-title{
+			cursor: pointer;
+		}
+		a {
+            text-decoration: none;
+            color: black;
+        }
+        a:hover {
+            color: #8391a2;
+        }
+        .imgstyle {
+            float:right;
+        }
+        .contactbutton {
+            border: 1px solid #1E1A4B;
+            border-radius: 40px;
+            opacity: 1;
+            font: normal normal normal 20px Arial;
+            background: #ffffff 0% 0% no-repeat padding-box;
+        }
+        .ulleftside {
+            text-align: left;
+            font: normal normal normal 18px;
+            letter-spacing: 0px;
+            color: #6c757d;
+            opacity: 1;
+        }
+        .webcommand {
+            font: normal normal bold 18px Arial;
+            padding-left: 20px;
+            color: #333333;
+        }
+        .webcommandcontent {
+            font: normal normal normal 16px Arial;
+            padding-left: 30px;
+        }
+        .webcommandlist {
+            font: normal normal normal 16px Arial;
+            padding-left: 50px;
+        }
+        button:hover {
+            cursor: pointer;
+        }
+        h2 {
+            text-decoration: underline;
+            -webkit-text-decoration-color: #6c757d;
+            text-decoration-color: #6c757d;
+        }
+        hr {
+            border: dashed #D3D3D3 1px;
+        }
+        .mbsc-material .mbsc-form-group-title {
+            color: #333333;
+            border-bottom: 2px solid #D3D3D3;
+        }
+        .mbsc-material .mbsc-padding {
+            border-bottom: 2px solid #D3D3D3;
+        }
+        @media only screen and (max-width:700px) {
+            .contactarea {
+                display: none;
+            }
+        }
+        .tab {
+            overflow: hidden;
+            border: 1px solid #D3D3D3;
+            background-color: #f1f1f1;
+        }
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            padding: 14px 16px;
+            transition: 0.3s;
+        }
+        .tab button:hover {
+            background-color: #D3D3D3;
+        }
+        .tab button.active {
+            background-color: #D3D3D3;
+        }
+        .tabContentHello {
+            display: none;
+            font: normal normal normal 16px Arial;
+            padding: 6px 12px;
+            border: 1px solid #D3D3D3;
+            border-top: none;
+            background-color: #000000;
+            color: #ffffff;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        .tabContentIf {
+            display: none;
+            font: normal normal normal 16px Arial;
+            padding: 6px 12px;
+            border: 1px solid #D3D3D3;
+            border-top: none;
+            background-color: #000000;
+            color: #ffffff;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        .tabContentIfTest {
+            display: none;
+            font: normal normal normal 16px Arial;
+            padding: 6px 12px;
+            border: 1px solid #D3D3D3;
+            border-top: none;
+            background-color: #000000;
+            color: #ffffff;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        .tabContentElseTest {
+            display: none;
+            font: normal normal normal 16px Arial;
+            padding: 6px 12px;
+            border: 1px solid #D3D3D3;
+            border-top: none;
+            background-color: #000000;
+            color: #ffffff;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        .correctbutton {
+            border: 1px solid #000000;
+            border-radius: 5px;
+            font: normal normal normal 16px Arial;
+            padding-top: 6px;
+            padding-left: 10px;
+            padding-bottom: 6px;
+            padding-right: 10px;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+        .incorrectbutton {
+            border: 1px solid #000000;
+            border-radius: 5px;
+            font: normal normal normal 16px Arial;
+            padding-top: 6px;
+            padding-left: 10px;
+            padding-bottom: 6px;
+            padding-right: 10px;
+            margin-left: 5px;
+            margin-right: 5px;
+            opacity: 1;
+        }
+        .correctbutton:hover {
+            background-color: #D3D3D3;
+            transition: 0.3s;
+        }
+        .incorrectbutton:hover {
+            background-color: #D3D3D3;
+            transition: 0.3s;
+        }
+        .correctbutton:focus {
+            background-color: #54d83a;
+        }
+
+        .incorrectbutton:focus {
+            background-color: #ff0000;
+        }
+        .correct {
+            display: none;
+            color: #54d83a;
+            font: normal bold normal 16px Arial;
+        }
+        .incorrect {
+            display: none;
+            color: #ff0000;
+            font: normal bold normal 16px Arial;
+        }
+        .decimaltobinarytohex {
+            font: normal normal normal 16px Arial;
+        }
+        label {
+            font: normal normal normal 16px Arial;
+            margin-left: 10px;
+        }
+        .imagerightcontainer {
+            float: right;
+            height: 200px;
+
+        }
+        .imageleftcontainer {
+            float: left;
+            height: 200px;
+            margin: 25px;
+        }
+        #intro { 
+            list-style-image: url(./ImagesandIcons/bootstrap-icons-1.1.0/house-door.svg);
+        }
+        #hello {
+            list-style-image: url(./ImagesandIcons/bootstrap-icons-1.1.0/chat-left-dots.svg);
+        }
+        #vari {
+            list-style-image: url(./ImagesandIcons/bootstrap-icons-1.1.0/sort-numeric-down.svg);
+        }
+        #ifelse {
+            list-style-image: url(./ImagesandIcons/bootstrap-icons-1.1.0/diagram-3.svg);
+        }
+        #array {
+            list-style-image: url(./ImagesandIcons/bootstrap-icons-1.1.0/list-ol.svg);
+        }
+        #loop {
+            list-style-image: url(./ImagesandIcons/bootstrap-icons-1.1.0/arrow-repeat.svg);
+        }
+        #dechexbin {
+            list-style-image: url(./ImagesandIcons/bootstrap-icons-1.1.0/circle-half.svg);
+        }
+    </style>
+    <body>
+        <div class="removespacetop">
+        </div>
+        <div class="wrap">
+        <div class="topheader" id="top_header">
+            <div class="logowrapper">
+                <img src="./ImagesandIcons/Capture.JPG" alt="Standard Coding Logo">
+            </div>
+            <div class="contactarea">
+                <button class="contactbutton" onclick="contactFault()">Contact Us</button>
+            </div>
+        </div>
+        <div class="mainsection" id="main_height">
+            <div class="lefthalf" id="left_half">
+                <div id=leftsidescroll>
+                    <!--Enter contents for the left side of the webpage here-->
+                    <div class="contentstitle">
+                        <h2>Navigation</h2>
+                    </div>
+                    <div class="contents">
+                        <ul class="ulleftside">
+                            <li id="intro"><a class="ulleftside" href="#introduction">Introduction</a></li>
+                            <li id="hello"><a class="ulleftside" href="#helloworld">Hello World!</a></li>
+                            <li id="vari"><a class="ulleftside" href="#variables">Variables</a></li>
+                            <li id="ifelse"><a class="ulleftside" href="#ifelsestatements">if...else statements</a></li>
+                            <li id="array"><a class="ulleftside" href="#arrays">Arrays</a></li>
+                            <li id="loop"><a class="ulleftside" href="#loops">Loops</a></li>
+                            <li id="dechexbin"><a class="ulleftside" href="#converter">Decimal, Hexadecimal and Binary Values</a></li>
+                        </ul>
+                    </div>
+                    <div class="definitionstitle">
+                        <h2>Definitions</h2>
+                    </div>
+                    <div class="keywords">
+                        <!--Definitions will go here (This will be done at the end of the documentation-->
+                        <ul class="ulleftside">
+                            <li class="csr" onclick="DO_my_popup('programlang');">Programming Language</li>
+                            <li class="csr" onclick="DO_my_popup('program');">Program</li>
+                            <li class="csr" onclick="DO_my_popup('ide');">IDE (Integrated Development Environment)</li>
+                            <li class="csr" onclick="DO_my_popup('decimal');">Decimal</li>
+                            <li class="csr" onclick="DO_my_popup('binary');">Binary</li>
+                            <li class="csr" onclick="DO_my_popup('hex');">Hexadecimal</li>
+                            <li class="csr" onclick="DO_my_popup('syntax');">Syntax</li>
+                            <li class="csr" onclick="DO_my_popup('conditional');">Conditional</li>
+                            <li class="csr" onclick="DO_my_popup('compile');">Compile</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--Enter contents for the right side of the webpage here-->
+            <div class="righthalf" id="right_half">
+                <br>
+                <div class="rounded">
+                    <img class="imagerightcontainer" src="./ImagesandIcons/image.jpg" alt="picture of code">
+                    <h2 id="introduction">So What is Code?</h2>
+                    When you learn to code you can make things happen on your computer.<br><br>You can make anything you want with code. It could be a game, some pictures or a film.<br><br>Computer code is a set of rules or instructions. It is made up of words and numbers and when you put them in the right order it will tell your computer what you want it to do. You can program lots of things with code. (Original Source: <a href="https://www.bbc.co.uk/bitesize/topics/z3tbwmn/articles/zykx6sg" target="_blank">https://www.bbc.co.uk/bitesize/topics/z3tbwmn/articles/zykx6sg</a>)
+                </div>
+                <br>
+                <div class="rounded">
+                    <img class="imageleftcontainer" src="./ImagesandIcons/code2.png" alt="second picture of code">
+                    <h2>What We Do</h2>
+                    Here at &#60/>, otherwise known as Brackets, we strive teach the world about coding one course at a time. We have basic courses all the way up to the most advanced and abstract code you may think of as well as advanced computational thinking.<br><br>We have other courses which touch upon Concurrency and Distribution of Operating Systems as well as Parallelism all the way up to basic Neural Networks.<br><br>On this course however we're just going to focus on the raw basics of programming languages that you may or may not have heard of. Three to be exact, Java, C++ and Python. It is using these three programming languages that we're going to move forward with our multiple courses one step at a time.
+                </div>
+                <br>
+                <div class="rounded">
+                    <img class="imagerightcontainer" src="./ImagesandIcons/binary-code.jpg" alt="binary example">
+                    <h2>Covering Binary and Hexadecimal</h2>
+                    In the basics, as well as basic programming practices we're going to cover binary and hexadecimals, which are 2 of the most basic topics in Computer Science.<br><br>The reasoning behind learning binary is to understand how computers think at the bottom most level, even if the majority of programmers or even hardware engineers don't even deal directly with binary. That is where Hexadecimals come in. They are more readable than binary as they more closely resemble our own decimal(base-10) counting system it's therefore easier to see at a glance how big a number is in Hexadecimal as opposed to Binary. The other reason is touched upon further on in the <a href="#converter">Decimal, Hexadecimal and Binary values</a> section of this webpage. (Original Source: <a href="https://www.computerhope.com/jargon/h/hex.htm" target="_blank">https://www.computerhope.com/jargon/h/hex.htm</a>)
+                </div>
+
+                <br>
+                <hr>
+                <br>
+
+                <div class="rounded">
+                <h2 id="helloworld">The "Hello World!" Function</h2>
+                <p>Starting off we have the "Hello World" function. It generally is a computer program that outputs or displays the message "Hello World!". Such a program is very simple in most programming languages, and is often used to illustrate the basic syntax of a programming language. It is often the first program written by people learning to code due to its simplicity. It can also be used as a sanity test to make sure that a computer language is correctly installed, and that the operator understands how to use it. (Original Source:<a href="https://en.wikipedia.org/wiki/%22Hello,_World!%22_program" target="_blank">https://en.wikipedia.org/wiki/%22Hello,_World!%22_program</a>)</p>
+                <br>
+                <div class="tab">
+                    <button class="tabLinksHello" onclick="displayCodeHello(event, 'JavaHello')" id="openTabHello">Java</button>
+                    <button class="tabLinksHello" onclick="displayCodeHello(event, 'C++Hello')">C++</button>
+                    <button class="tabLinksHello" onclick="displayCodeHello(event, 'PythonHello')">Python</button>
+                </div>
+                  
+                  <!-- Tab content Hello World -->
+                <div id="JavaHello" class="tabContentHello">
+                    <h3>Java</h3>
+                    public class HelloWorld {<br>   &nbsp &nbsp public static void main(String[] args) {<br> &nbsp &nbsp &nbsp &nbsp System.out.println("Hello World!");<br>&nbsp &nbsp }<br>}<br><br>
+                </div>
+                  
+                <div id="C++Hello" class="tabContentHello">
+                    <h3>C++</h3>
+                     #include &#60iostream><br>using namespace std;<br><br>int main() {<br>&nbsp &nbsp cout << "Hello World!";<br>&nbsp &nbsp return 0; <br>}<br><br>
+                </div>
+                  
+                <div id="PythonHello" class="tabContentHello">
+                    <h3>Python</h3>
+                    print("Hello World!");<br><br>
+                </div>
+                <p>Ouput:</p>
+                <div class="output">
+                    Hello World!
+                </div>
+                <p class="generalfont">Easy right? Remember, when using functions like System.out.println("");, cout <<""; and print(""); the output will always be in the console of the IDE (Integrated Development Environment) that you are using to compile your code.</p>
+                </div>
+                
+                <br>
+                <hr>
+                <br>
+                
+                <div class="rounded">
+                <h2 id="variables">Variables</h2>
+                <p class="generalfont">This section will be filled in in the final version. It will follow the same structure as the "if...else statement" section further on with an example with an output and then an example where the user must figure out the output for themselves</p>
+                </div>
+                
+                <br>
+                <hr>
+                <br>
+                
+                <div class="rounded">
+                <h2 id="ifelsestatements">if...else Statements</h2>
+                <p>An if else statement, otherwise known as conditional statements, are functions that run a different set of statements depending on whether an expression is true or false. A typical if else statement would appear similar to the one below. (Original Source: <a href="https://www.computerhope.com/jargon/i/ifelse.htm" target="_blank">https://www.computerhope.com/jargon/i/ifelse.htm</a>)</p>
+                <br>
+                <div class="tab">
+                    <button class="tabLinksIf" onclick="displayCodeIf(event, 'JavaIf')" id="openTabIf">Java</button>
+                    <button class="tabLinksIf" onclick="displayCodeIf(event, 'C++If')">C++</button>
+                    <button class="tabLinksIf" onclick="displayCodeIf(event, 'PythonIf')">Python</button>
+                </div>
+                  
+                <!-- Tab content If statements -->
+                <div id="JavaIf" class="tabContentIf">
+                    <h3>Java</h3>
+                    public class IfElseStatement {<br>   &nbsp &nbsp public static void main(String[] args) {<br> &nbsp &nbsp &nbsp &nbsp int number = 42;<br><br>&nbsp &nbsp &nbsp &nbsp if (number == 42) {<br> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp System.out.println("The number is: " + number);<br>&nbsp &nbsp &nbsp &nbsp }<br>&nbsp &nbsp &nbsp &nbsp else {<br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp System.out.println("The number is not 42 but is actually: " + number);<br>&nbsp &nbsp &nbsp &nbsp }<br>&nbsp &nbsp }<br>}
+                </div>
+                  
+                <div id="C++If" class="tabContentIf">
+                    <h3>C++</h3>
+                    <p>Insert if...else statement for C++ here</p>
+                </div>
+                  
+                <div id="PythonIf" class="tabContentIf">
+                    <h3>Python</h3>
+                    <p>Insert if...else statement for Python here</p>
+                </div>
+                <p>In this case, with the variable number being equal to the number 42, the statement in the first curly brackets {} is executed and as such your ouput would be:</p>
+                  <div class="output">
+                      The number is: 42
+                  </div>
+                  <p>If you were to change the variable number to equal 37 before the if statement is executed then your output would be:</p>
+                  <div class="output">
+                    The number is not 42 but is actually: 37
+                </div>
+                <br>
+                <p>Now read through the code and try to see if you can find out what the output will be for yourself now.</p>
+                <br>
+
+                <div class="tab">
+                    <button class="tabLinksIfTest" onclick="displayCodeIfTest(event, 'JavaIfTest')" id="openTabIfTest">Java</button>
+                    <button class="tabLinksIfTest" onclick="displayCodeIfTest(event, 'C++IfTest')">C++</button>
+                    <button class="tabLinksIfTest" onclick="displayCodeIfTest(event, 'PythonIfTest')">Python</button>
+                </div>
+
+                <div id="JavaIfTest" class="tabContentIfTest">
+                    <h3>Java</h3>
+                    public class IfElseStatementTest {<br>   &nbsp &nbsp public static void main(String[] args) {<br> &nbsp &nbsp &nbsp &nbsp int number = 1;<br>&nbsp &nbsp &nbsp &nbsp number = number + (5 * 8);<br><br>&nbsp &nbsp &nbsp &nbsp if (number == 41) {<br> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp number++;<br> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp System.out.println(number);<br>&nbsp &nbsp &nbsp &nbsp }<br>&nbsp &nbsp &nbsp &nbsp else {<br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp System.out.println(number);<br>&nbsp &nbsp &nbsp &nbsp }<br>&nbsp &nbsp }<br>}
+                </div>
+                  
+                <div id="C++IfTest" class="tabContentIfTest">
+                    <h3>C++</h3>
+                    <p>Insert if...else statement for C++ here</p>
+                </div>
+                  
+                <div id="PythonIfTest" class="tabContentIfTest">
+                    <h3>Python</h3>
+                    <p>Insert if...else statement for Python here</p>
+                </div>
+                <p>What is the output of the code?</p>
+                <button id="btn1q1" class="correctbutton answerbutton1" onclick="correctbutton('cq1', 'icq1','btn1q1','answerbutton1')">42</button>
+                <button id="btn2q1" class="incorrectbutton answerbutton1" onclick="incorrectbutton('cq1', 'icq1','btn2q1','answerbutton1')">41</button>
+                <button id="btn3q1" class="incorrectbutton answerbutton1" onclick="incorrectbutton('cq1', 'icq1','btn3q1','answerbutton1')">Wisconsin</button>
+                <button id="btn4q1" class="incorrectbutton answerbutton1" onclick="incorrectbutton('cq1', 'icq1','btn4q1','answerbutton1')">Jane Doe</button>
+                <button id="btn5q1" class="incorrectbutton answerbutton1" onclick="incorrectbutton('cq1', 'icq1','btn5q1','answerbutton1')">36</button>
+                <p class="correct" id="cq1">Correct!</p>
+                <p class="incorrect" id="icq1">Incorrect</p>
+                <br>
+                <p>Now try again.</p>
+                <br>
+                <div class="tab">
+                    <button class="tabLinksElseTest" onclick="displayCodeElseTest(event, 'JavaElseTest')" id="openTabElseTest">Java</button>
+                    <button class="tabLinksElseTest" onclick="displayCodeElseTest(event, 'C++ElseTest')">C++</button>
+                    <button class="tabLinksElseTest" onclick="displayCodeElseTest(event, 'PythonElseTest')">Python</button>
+                </div>
+
+                <div id="JavaElseTest" class="tabContentElseTest">
+                    <h3>Java</h3>
+                    public class IfElseStatementTest {<br>   &nbsp &nbsp public static void main(String[] args) {<br> &nbsp &nbsp &nbsp &nbsp int number = 1;<br>&nbsp &nbsp &nbsp &nbsp number = number + (5 * 7);<br><br>&nbsp &nbsp &nbsp &nbsp if (number == 41) {<br> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp number++;<br> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp System.out.println(number);<br>&nbsp &nbsp &nbsp &nbsp }<br>&nbsp &nbsp &nbsp &nbsp else {<br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp System.out.println(number);<br>&nbsp &nbsp &nbsp &nbsp }<br>&nbsp &nbsp }<br>}
+                </div>
+                  
+                <div id="C++ElseTest" class="tabContentElseTest">
+                    <h3>C++</h3>
+                    <p>Insert if...else statement for C++ here</p>
+                </div>
+                  
+                <div id="PythonElseTest" class="tabContentElseTest">
+                    <h3>Python</h3>
+                    <p>Insert if...else statement for Python here</p>
+                </div>
+                <p>Now what is the output of the code?</p>
+                <button id="btn1q2" class="incorrectbutton answerbutton2" onclick="incorrectbutton('cq2', 'icq2','btn1q2','answerbutton2')">42</button>
+                <button id="btn2q2" class="incorrectbutton answerbutton2" onclick="incorrectbutton('cq2', 'icq2','btn2q2','answerbutton2')">41</button>
+                <button id="btn3q2" class="incorrectbutton answerbutton2" onclick="incorrectbutton('cq2', 'icq2','btn3q2','answerbutton2')">Wisconsin</button>
+                <button id="btn4q2" class="incorrectbutton answerbutton2" onclick="incorrectbutton('cq2', 'icq2','btn4q2','answerbutton2')">Jane Doe</button>
+                <button id="btn5q2" class="correctbutton answerbutton2" onclick="correctbutton('cq2', 'icq2','btn5q2','answerbutton2')">36</button>
+                <p class="correct" id="cq2">Correct!</p>
+                <p class="incorrect" id="icq2">Incorrect</p>
+                <p class="generalfont">It can be quite tricky sometimes to get the hang of any sort of program or function in coding so don't feel too dissuaded if you don't get it first time around. Even the best programmers in the world struggled at the beginning and they all had to start from somewhere. Proficiency in coding comes, just like everything else, from experience.</p>
+                </div>
+                
+                <br>
+                <hr>
+                <br>
+                
+                <div class="rounded">
+                <h2 id="arrays">Arrays</h2>
+                <p class="generalfont">This section will be filled in in the final version. It will follow the same structure as the "if...else statement" section further on with an example with an output and then an example where the user must figure out the output for themselves</p>
+                </div>
+                
+                <br>
+                <hr>
+                <br>
+                
+                <div class="rounded">
+                <h2 id="loops">Loops</h2>
+                <p class="generalfont">This section will be filled in in the final version. It will follow the same structure as the "if...else statement" section further on with an example with an output and then an example where the user must figure out the output for themselves</p>
+                </div>
+                
+                <br>
+                <hr>
+                <br>
+                
+                <div class="rounded">
+                <h2 id="converter">Decimal, Hexadecimal and Decimal Values</h2>
+                In binary the 0s and 1s represent OFF or ON, respectively. In a transistor, a "0" represents no flow of electricity, and "1" represents electricity being allowed to flow. In this way, numbers are represented physically inside the computing device, permitting calculation. Binary is still the primary language for computers as it is simple and elegant, the 0 and 1 method is quick to detect an electrical signal's off or on state, the positive and negative poles of magnetic media are quickly translated into binary and it is the most efficient way to control logic circuits (which will be covered in a later course). (Original Source: <a href="https://www.computerhope.com/jargon/b/binary.htm" target="_blank">https://www.computerhope.com/jargon/b/binary.htm</a>)
+                <p class="generalfont">How to convert Decimal numbers into Binary numbers manually: </p>
+                <ol>
+                    <li class="generalfont">Divide the number by 2.</li>
+                    <li class="generalfont">Get the integer quotient for the next iteration.</li>
+                    <li class="generalfont">Get the remainder of the binary digit.</li>
+                    <li class="generalfont">Repeat the steps until the quotient is equal to 0.</li>
+                </ol>
+                The way you would read a binary number is like this:
+                <br>
+                <img src="./ImagesandIcons/Binary.JPG" alt="Binary graph">
+                <br>
+                Each column represents the number two raised to an exponent, with that exponent's value increasing by one as you move through each of the eight positions. To get the total of this example, read the chart from right to left and add each column's value to the previous column: (8+32+64) = 104. As you can see, we do not count the bits with a 0 because they're "turned off." (Original Source: <a href="https://www.computerhope.com/jargon/b/binary.htm" target="_blank">https://www.computerhope.com/jargon/b/binary.htm</a>)
+                <br>
+                <br>
+                Alternatively referred to as base-16 or hex, the hexadecimal numbering system uses combinations of 16 character digits to represent numbers. Hexadecimal uses all ten numbers in the decimal system (0, 1, 2, 3, 4, 5, 6, 7, 8, and 9) and letters A through F. For example 24 in hexadecimal becomes 18 because you have [(1 x 16) + 8 = 24]. (Original Source: <a href="https://www.computerhope.com/jargon/h/hex.htm" target="_blank">https://www.computerhope.com/jargon/h/hex.htm</a>)<br>Hexadecimal's are extremely useful because of their readability compared to binary and because they have a higher information density. With 2 hexadecimal digits, we can express any number from 0 to 255. To do the same in binary, we need 8 digits. As we get bigger and bigger numbers, we start needing more and more digits and it becomes harder to deal with. However decimals are definitely more readable than hexadecimals and it also compresses the numbers fairly well. However, the issue with decimals can be illustrated in the following graph: (Original Source: <a href="https://medium.com/@savas/why-do-we-use-hexadecimal-d6d80b56f026" target="_blank">https://medium.com/@savas/why-do-we-use-hexadecimal-d6d80b56f026</a>)
+                <br>
+                <img src="./ImagesandIcons/decihexbina.JPG" alt="decimal, hexadecimal and binary graph">
+                <br>
+                Notice that binary and decimal never line up, whereas hexadecimal and binary do, in fact, they do it every 4 binary digits. In practice, this means that one digit of hexadecimal can always be represented with 4 digits of binary. Decimal doesn’t work this way. The key property that allows hexadecimal to work this way is that it has a base which is a multiple of 2 (2⁴ for hexadecimal). For this reason, any number system we choose to compress binary data should have a base that is a multiple of 2. (Original Source: <a href="https://medium.com/@savas/why-do-we-use-hexadecimal-d6d80b56f026" target="_blank">https://medium.com/@savas/why-do-we-use-hexadecimal-d6d80b56f026</a>)
+                <p class="generalfont">How to convert Decimal numbers into Hexadecimal numbers manually: </p>
+                <ol>
+                    <li class="generalfont">Divide the Decimal number by 16. Treat the division as an integer division.</li>
+                    <li class="generalfont">Write down the remainder (in hexadecimal).</li>
+                    <li class="generalfont">Divide the result again by 16. Treat the division as an integer division.</li>
+                    <li class="generalfont">Repeat steps 2 and 3 until result is 0.</li>
+                </ol>
+                <br>
+                This here is a decimal to binary to hexadecimal converter so you can throw in a few numbers to test out and truly get a grasp of the conversion.
+                        <div>
+                            <div class="space">Enter Decimal Number:</div>
+                            <input class="form-control" type="number" name="decimalInput">
+                        </div>
+                        <div class="space">
+                            <button class="btn btn-info" onclick="convertBtn()">
+                                Convert
+                            </button>
+                            <button class="btn btn-info" onclick="resetBtn()">
+                                Reset
+                            </button>
+                        </div>
+                        <div>
+                            <div class="space">Binary Number</div>
+                            <textarea class="form-control" name="binaryArea" disabled></textarea>
+                        </div>
+                        <div>
+                            <div class="space">Hexadecimal Number:</div>
+                            <textarea class="form-control" name="hexArea" disabled></textarea>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <!--This area contains code for the div that exists to create the 'Definitions' pop-up-->
+        <div id="popup_menu" class="mbsc-cloak" style="display:none">
+            <div id="pop_menu_form" mbsc-form>
+                <div id="popuptext"></div>
+            </div>
+        </div>
+        </div>
+    </body>
+
+    <script>
+        mobiscroll.settings = {
+            theme: 'material',
+            themeVariant: 'light'
+        };
+
+        $(function () {
+            console.log('Page Starting');
+            $(window).resize(function(){
+                my_resize();
+
+            });
+            my_resize();
+        });
+        var POPUP_ID = null;
+        function DO_my_popup(item){
+            if(POPUP_ID == null){
+                console.log('Creating Popup');
+                POPUP_ID = $('#popup_menu').mobiscroll().popup({
+                    button: ['close'],
+                    display: 'bottom',
+                    onSet: function (event, inst) {   
+                    }
+                }).mobiscroll('getInst');
+            }
+            $('#popuptext').load(item +'.htm',function(){
+                console.log("Enhance");
+                $('#popup_menu').trigger("mbsc-enhance");
+                POPUP_ID.show();
+            });  
+        }
+
+        $(document).ready(function(){
+            $("#errorInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#errorTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+
+        function my_resize(){
+            console.log("Resizing");
+                var h = window.innerHeight;
+                var w = window.innerWidth;
+                console.log('Screen Height:',h + 'Screen Width: ',w);
+                var top_height = $('#top_header').height();
+                var left_width = $('#left_half').width();
+                var left_height = $('#left_half').height();
+                console.log("Top Height",top_height, " Left Width",left_width);
+                $('#right_half').height(h - top_height).width(w - left_width - 30);
+                $('#left_half').height(h - top_height);
+        }
+
+        function displayCodeHello(evt, progLang) {
+            var i, tabContentHello, tabLinksHello;
+
+            tabContentHello = document.getElementsByClassName("tabContentHello");
+            for (i = 0; i < tabContentHello.length; i++) {
+                tabContentHello[i].style.display = "none";
+            }
+
+            tabLinksHello = document.getElementsByClassName("tabLinksHello");
+            for (i = 0; i < tabLinksHello.length; i++) {
+                tabLinksHello[i].className = tabLinksHello[i].className.replace(" active", "");
+            }
+
+            document.getElementById(progLang).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        document.getElementById("openTabHello").click();
+
+
+        function displayCodeIf(evt, progLang) {
+            var i, tabContentIf, tabLinksIf;
+
+            tabContentIf = document.getElementsByClassName("tabContentIf");
+            for (i = 0; i < tabContentIf.length; i++) {
+                tabContentIf[i].style.display = "none";
+            }
+
+            tabLinksIf = document.getElementsByClassName("tabLinksIf");
+            for (i = 0; i < tabLinksIf.length; i++) {
+                tabLinksIf[i].className = tabLinksIf[i].className.replace(" active", "");
+            }
+
+            document.getElementById(progLang).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        document.getElementById("openTabIf").click();
+
+
+        function displayCodeIfTest(evt, progLang) {
+            var i, tabContentIfTest, tabLinksIfTest;
+
+            tabContentIfTest = document.getElementsByClassName("tabContentIfTest");
+            for (i = 0; i < tabContentIfTest.length; i++) {
+                tabContentIfTest[i].style.display = "none";
+            }
+
+            tabLinksIfTest = document.getElementsByClassName("tabLinksIfTest");
+            for (i = 0; i < tabLinksIfTest.length; i++) {
+                tabLinksIfTest[i].className = tabLinksIfTest[i].className.replace(" active", "");
+            }
+
+            document.getElementById(progLang).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        document.getElementById("openTabIfTest").click();
+
+
+        function displayCodeElseTest(evt, progLang) {
+            var i, tabContentElseTest, tabLinksElseTest;
+
+            tabContentElseTest = document.getElementsByClassName("tabContentElseTest");
+            for (i = 0; i < tabContentElseTest.length; i++) {
+                tabContentElseTest[i].style.display = "none";
+            }
+
+            tabLinksElseTest = document.getElementsByClassName("tabLinksElseTest");
+            for (i = 0; i < tabLinksElseTest.length; i++) {
+                tabLinksElseTest[i].className = tabLinksElseTest[i].className.replace(" active", "");
+            }
+
+            document.getElementById(progLang).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        document.getElementById("openTabElseTest").click();
+
+        function correctbutton(correctAnswer, incorrectAnswer, buttonClicked,answerbuttonclass) {
+            $("#" + correctAnswer).css('display', 'block');
+            $("#" + incorrectAnswer).css('display', 'none');
+            $("." + answerbuttonclass).css('background', '#D3D3D3');
+            $("#" + buttonClicked).css('background', '#54d83a');
+            
+        }
+
+        function incorrectbutton(correctAnswer, incorrectAnswer,buttonClicked,answerbuttonclass) {
+            $("#" + correctAnswer).css('display', 'none');
+            $("#" + incorrectAnswer).css('display', 'block');
+            $("." + answerbuttonclass).css('background', '#D3D3D3');
+            $("#" + buttonClicked).css('background', '#ff0000');
+
+        }
+        function convertBtn(){
+            var decimal = parseInt($("input[name*='decimalInput']").val());
+            var binaryArea = $("textarea[name*='binaryArea']");
+            var hexArea = $("textarea[name*='hexArea']");
+            var hexString = decimal.toString(16);
+
+            var binaryString = parseInt($("input[name*='decimalInput']").val()).toString(2);
+
+            binaryArea.val(binaryString);
+            hexArea.val(hexString.toUpperCase());
+            octalArea.val(octalString.toUpperCase());
+        }
+
+        function resetBtn() {
+            var binaryArea = $("textarea[name*='binaryArea']");
+            var hexArea = $("textarea[name*='hexArea']");
+            $("input[name*='decimalInput']").val("");
+            binaryArea.val("");
+            hexArea.val("");
+        }
+
+        (function() {
+
+            var img = document.getElementById('imagerightcontainer').firstChild;
+            img.onload = function() {
+                if(img.height > img.width) {
+                    img.height = '100%';
+                    img.width = 'auto';
+                }
+            };
+        }());
+
+        (function() {
+
+            var img = document.getElementById('imageleftcontainer').firstChild;
+            img.onload = function() {
+                if(img.height > img.width) {
+                    img.height = '100%';
+                    img.width = 'auto';
+                }
+            };
+        }());
+
+        function contactFault() {
+            window.alert("This button would lead to a separate site that would be the homepage of the company/corporation/team called </>(Brackets)");
+        }
+    </script>
+</html>
